@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert, Image } from 'react-native';
+
 import { getBooksByLibrary, addBook, getLibraries, deleteBook, getStats, scanBookById } from '../services/api';
 import CustomPicker from '../components/CustomPicker';
 import { useLanguage } from '../services/i18n';
@@ -133,16 +134,21 @@ export default function AdminScreen({ navigation, route }) {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollContainer} contentContainerStyle={{ paddingBottom: 100 }}>
-                <View style={[styles.header, { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }]}>
-                    <View>
+                <View style={[styles.header, { flexDirection: 'row', alignItems: 'center' }]}>
+                    <Image source={require('../assets/logo.png')} style={{ width: 45, height: 45, borderRadius: 10, marginRight: 12 }} />
+                    <View style={{ flex: 1 }}>
                         <Text style={styles.title}>{t('libraryConsole')}</Text>
                         <Text style={styles.subtitle}>{t('branchManager')}: {user?.username}</Text>
                     </View>
+                    <TouchableOpacity style={{ marginRight: 15 }}>
+                        <Image source={require('../assets/user.png')} style={{ width: 40, height: 40, borderRadius: 20 }} />
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.scanBtn} onPress={handleScan}>
-                        <Text style={{ fontSize: 28 }}>📷</Text>
+                        <Text style={{ fontSize: 24 }}>📷</Text>
                         <Text style={styles.scanText}>{t('quickStart')}</Text>
                     </TouchableOpacity>
                 </View>
+
 
 
                 {/* Branch Stats */}

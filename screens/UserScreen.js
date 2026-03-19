@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert, TextInput, ScrollView, Image } from 'react-native';
+
 import { getAllBooks, borrowBook, returnBook, getRecommendations, getDigitalResources, getNotifications, toggleFavorite, getFavorites } from '../services/api';
 import { useLanguage } from '../services/i18n';
 
@@ -158,15 +159,20 @@ export default function UserScreen({ navigation, route }) {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
                 <View style={styles.headerArea}>
                     <View style={styles.headerTop}>
-                        <View style={{ flex: 1 }}>
+                        <Image source={require('../assets/logo.png')} style={styles.headerLogo} />
+                        <View style={{ flex: 1, marginLeft: 12 }}>
                             <Text style={styles.welcome}>{t('welcome')}, {user?.username} 👋</Text>
                             <Text style={styles.subtitle}>{t('subtitle')}</Text>
                         </View>
+                        <TouchableOpacity style={styles.profileArea} onPress={() => Alert.alert('Profile', `User ID: ${user?.id}\nMembership: Active`)}>
+                            <Image source={require('../assets/user.png')} style={styles.avatarMini} />
+                        </TouchableOpacity>
                         <TouchableOpacity style={styles.notifBtn} onPress={() => setShowNotifications(!showNotifications)}>
                             <Text style={{ fontSize: 24 }}>🔔</Text>
                             {notifications.length > 0 && <View style={styles.notifBadge} />}
                         </TouchableOpacity>
                     </View>
+
                 </View>
 
                 {showNotifications && (
@@ -297,9 +303,13 @@ const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: '#f8fafc' },
     headerArea: { paddingHorizontal: 25, paddingTop: 30, paddingBottom: 10 },
     headerTop: { flexDirection: 'row', alignItems: 'center' },
+    headerLogo: { width: 45, height: 45, borderRadius: 10 },
     welcome: { fontSize: 26, fontWeight: '900', color: '#0f172a' },
     subtitle: { fontSize: 13, color: '#64748b', marginTop: 2 },
+    profileArea: { marginRight: 15 },
+    avatarMini: { width: 40, height: 40, borderRadius: 20, borderWidth: 2, borderColor: '#fff' },
     notifBtn: { backgroundColor: '#fff', padding: 10, borderRadius: 15, elevation: 2, position: 'relative' },
+
     notifBadge: { position: 'absolute', top: 12, right: 12, width: 8, height: 8, backgroundColor: '#ef4444', borderRadius: 4, borderWidth: 1, borderColor: '#fff' },
     notifPanel: { backgroundColor: '#fff', marginHorizontal: 25, borderRadius: 20, padding: 15, marginBottom: 20, elevation: 3 },
     notifItem: { padding: 12, borderLeftWidth: 4, backgroundColor: '#f8fafc', borderRadius: 10, marginBottom: 10 },

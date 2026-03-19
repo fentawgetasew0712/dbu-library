@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator, Image } from 'react-native';
+
 import { loginUser } from '../services/api';
 
 import { useLanguage } from '../services/i18n';
@@ -40,7 +41,12 @@ export default function LoginScreen({ navigation }) {
                 <Text style={styles.langText}>{lang === 'en' ? 'አማርኛ (Amharic)' : 'English'}</Text>
             </TouchableOpacity>
 
-            <Text style={styles.title}>DBU Library</Text>
+            <View style={styles.logoContainer}>
+                <Image source={require('../assets/logo.png')} style={styles.logo} />
+                <Text style={styles.title}>DBU Digital Library</Text>
+                <Text style={styles.subtitle}>Empowering Knowledge</Text>
+            </View>
+
             
             <TextInput 
                 style={styles.input} 
@@ -67,12 +73,16 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: 'center', padding: 25, backgroundColor: '#f9fafb' },
+    container: { flex: 1, backgroundColor: '#f9fafb', alignItems: 'center', padding: 25, justifyContent: 'center' },
+    logoContainer: { alignItems: 'center', marginBottom: 40 },
+    logo: { width: 140, height: 140, resizeMode: 'contain', marginBottom: 20 },
     langToggle: { position: 'absolute', top: 50, right: 25, backgroundColor: '#fff', padding: 10, borderRadius: 10, elevation: 2 },
     langText: { fontWeight: 'bold', color: '#1d4ed8', fontSize: 13 },
-    title: { fontSize: 36, fontWeight: '900', textAlign: 'center', marginBottom: 50, color: '#1d4ed8' },
-    input: { backgroundColor: '#fff', padding: 18, borderRadius: 12, marginBottom: 15, borderWidth: 1, borderColor: '#e5e7eb', fontSize: 15 },
-    button: { backgroundColor: '#1d4ed8', padding: 18, borderRadius: 12, alignItems: 'center', marginTop: 10 },
+    title: { fontSize: 28, fontWeight: '900', color: '#1d4ed8', textAlign: 'center' },
+    subtitle: { fontSize: 13, color: '#6b7280', marginTop: 5, letterSpacing: 1.2, textTransform: 'uppercase' },
+    input: { width: '100%', backgroundColor: '#fff', padding: 18, borderRadius: 12, marginBottom: 15, borderWidth: 1, borderColor: '#e5e7eb', fontSize: 15 },
+    button: { width: '100%', backgroundColor: '#1d4ed8', padding: 18, borderRadius: 12, alignItems: 'center', marginTop: 10 },
+
     buttonText: { color: '#fff', fontSize: 17, fontWeight: 'bold' },
     footerText: { marginTop: 30, textAlign: 'center', color: '#6b7280', fontSize: 12 }
 });
