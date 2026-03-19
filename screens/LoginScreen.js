@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 
 import { loginUser } from '../services/api';
 
@@ -41,11 +41,9 @@ export default function LoginScreen({ navigation }) {
                 <Text style={styles.langText}>{lang === 'en' ? 'አማርኛ (Amharic)' : 'English'}</Text>
             </TouchableOpacity>
 
-            <View style={styles.logoContainer}>
-                <Image source={require('../assets/logo.png')} style={styles.logo} />
-                <Text style={styles.title}>DBU Digital Library</Text>
-                <Text style={styles.subtitle}>Empowering Knowledge</Text>
-            </View>
+            <Text style={styles.title}>DBU Digital Library</Text>
+            <Text style={styles.subtitle}>Empowering Knowledge</Text>
+
 
             
             <TextInput 

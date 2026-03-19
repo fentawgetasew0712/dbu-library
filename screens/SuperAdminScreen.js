@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert } from 'react-native';
+
 
 import { getLibraries, createLibrary, assignAdmin, getAdmins, deleteLibrary, deleteAdmin, getStats, getStudents, createStudent, deleteStudent } from '../services/api';
 import CustomPicker from '../components/CustomPicker';
@@ -108,16 +109,11 @@ export default function SuperAdminScreen({ navigation, route }) {
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-            <View style={[styles.headerArea, { flexDirection: 'row', alignItems: 'center' }]}>
-                <Image source={require('../assets/logo.png')} style={{ width: 60, height: 60, borderRadius: 15, marginRight: 15 }} />
-                <View style={{ flex: 1 }}>
-                    <Text style={styles.title}>{t('superAdmin')}</Text>
-                    <Text style={styles.subtitle}>{t('adminPanelDesc')}</Text>
-                </View>
-                <TouchableOpacity onPress={() => Alert.alert('Super Admin', 'Central University Control Active')}>
-                    <Image source={require('../assets/user.png')} style={{ width: 50, height: 50, borderRadius: 25, borderWidth: 2, borderColor: '#4f46e5' }} />
-                </TouchableOpacity>
+            <View style={styles.headerArea}>
+                <Text style={styles.title}>{t('superAdmin')}</Text>
+                <Text style={styles.subtitle}>{t('adminPanelDesc')}</Text>
             </View>
+
 
 
             {/* LIVE ANALYTICS DASHBOARD */}

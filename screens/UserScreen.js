@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert, TextInput, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert, TextInput, ScrollView } from 'react-native';
+
 
 import { getAllBooks, borrowBook, returnBook, getRecommendations, getDigitalResources, getNotifications, toggleFavorite, getFavorites } from '../services/api';
 import { useLanguage } from '../services/i18n';
@@ -159,19 +160,16 @@ export default function UserScreen({ navigation, route }) {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
                 <View style={styles.headerArea}>
                     <View style={styles.headerTop}>
-                        <Image source={require('../assets/logo.png')} style={styles.headerLogo} />
-                        <View style={{ flex: 1, marginLeft: 12 }}>
+                        <View style={{ flex: 1 }}>
                             <Text style={styles.welcome}>{t('welcome')}, {user?.username} 👋</Text>
                             <Text style={styles.subtitle}>{t('subtitle')}</Text>
                         </View>
-                        <TouchableOpacity style={styles.profileArea} onPress={() => Alert.alert('Profile', `User ID: ${user?.id}\nMembership: Active`)}>
-                            <Image source={require('../assets/user.png')} style={styles.avatarMini} />
-                        </TouchableOpacity>
                         <TouchableOpacity style={styles.notifBtn} onPress={() => setShowNotifications(!showNotifications)}>
                             <Text style={{ fontSize: 24 }}>🔔</Text>
                             {notifications.length > 0 && <View style={styles.notifBadge} />}
                         </TouchableOpacity>
                     </View>
+
 
                 </View>
 
