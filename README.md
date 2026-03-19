@@ -1,45 +1,62 @@
-# Debre Berhan University Multi-Library Management Mobile Application
+# 🏫 Debre Berhan University Library Management System
 
-## 🏫 1. Project Title
-**Debre Berhan University Multi-Library Management Mobile Application**
+A professional, high-performance mobile application built with **React Native (Expo)** to manage the decentralized library network of Debre Berhan University.
 
-## 📖 2. Project Description
-This system is a mobile application developed using React Native (Expo) to manage multiple libraries within Debre Berhan University.
+## 🌟 Key Features
 
-**It supports:**
-*   Multiple libraries
-*   Role-based access control
-*   Book management
-*   Borrowing system
+### 🌍 1. Multilingual Support (i18n)
+*   **Dual Language**: Full support for **English** and **Amharic (አማርኛ)**.
+*   **Dynamic Translation**: Instant UI switching across screens including Login, Dashboard, and Admin panels.
+*   **Localized Search**: Search for books and categories in both Ethiopic and Latin scripts.
 
-## 🎯 3. Objectives
+### 🧠 2. Smart User Experience
+*   **AI Recommendations**: Personalized book suggestions powered by borrowing patterns.
+*   **Digital Library**: Quick access to PDF research papers, eBooks, and audiobooks.
+*   **Overdue Fine Alerts**: Real-time visual tracking of book due dates with "Fine Alert" badges.
+*   **Quick Start Guide**: Contextual onboarding for new students and staff.
 
-### Main Objective
-To develop a mobile-based library management system for Debre Berhan University.
+### 📊 3. Administrative Control
+*   **Super Admin (University Controller)**:
+    *   **Network Health**: View real-time utilization stats and total assets across all branches.
+    *   **Staff Governance**: Create new library branches and assign branch administrators.
+    *   **User Directory**: Centralized management of student identities.
+*   **Library Admin (Branch Level)**:
+    *   **Inventory Dashboard**: Dynamic charts showing subject distributions.
+    *   **Barcode Simulation**: Quick scanning for book check-ins/outs.
+    *   **Catalog Management**: Full CRUD operations for branch-specific book collections.
 
-### Specific Objectives
-*   Manage multiple libraries
-*   Provide role-based access (Super Admin, Admin, User)
-*   Enable book borrowing and returning
-*   Improve library efficiency
+## 🛠️ Technology Stack
+*   **Frontend**: React Native, Expo 55, React Navigation.
+*   **Localization**: Custom React Context API with i18n hooks.
+*   **State Management**: React Hooks (useState/useEffect).
+*   **Backend Simulation**: High-fidelity API service for realistic data flow (AsyncStorage ready).
 
-## 👥 4. User Roles & Contributors
+## 🚀 Getting Started
 
-### 🟣 Super Admin
-*   Controls all libraries
-*   Creates libraries
-*   Assigns admins
+### Prerequisites
+*   Node.js (v18+)
+*   Expo Go app on your mobile device
 
-### 🔵 Library Admin
-*   Manages one specific library
-*   Adds/updates books in their respective library
-*   Manages users and library assistants
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/fentawgetasew0712/dbu-library.git
+   ```
+2. Navigate to project folder:
+   ```bash
+   cd dbu-library
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the project:
+   ```bash
+   npx expo start
+   ```
 
-### 🟢 Student/User
-*   Views available books
-*   Borrows books
-*   Returns books
+## 👥 Contributors
+*   **Fentaw Getasew** (@fentawgetasew0712) - Project Owner & Lead Developer
 
 ---
-
-*This document serves as the foundation for the application's structure and development roadmap. Each user role has specific privileges and dedicated screens within the mobile application to perform their respective duties efficiently.*
+*Developed for the Debre Berhan University IT Department and Library Network.*
